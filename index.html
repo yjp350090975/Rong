@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Rong</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code" style="font-size:16px">
+				海荣，单身节快乐。
+				<br>
+				你应该不过这个节日很久了，为了不让你有种失落感，做了这个逗你开心。
+				<br>
+				<br>
+				我知道你这几个月经历了很多事，情绪常常有波动，我都看在心里。
+				虽然不能分担什么，但我会一直陪着你的，不管你需不需要，我都在。
+				<br>
+				而你需要做的事是每天元气满满，没有烦恼。你那一双爱笑的眼睛不适合皱眉。
+				<br>
+				一切都会慢慢变好的，过好每一天。(*^__^*) 嘻嘻……
+				<br>
+				<br>
+				<span class="comments">
+					（附清单：
+					<br>
+					1、陪你看日出。
+					2、给你做早餐，让你醒来时从背后拥抱我。
+					3、一起去海边散步。
+					4、抱你去上厕所。
+					5、跟你一起去旅游。
+					6、欠你一个老公。
+					7、欠你一个小孩。
+					8、陪你一起喝酒。
+					9、陪你一起洗澡。
+					<br>
+					未完待续。。。）
+				</span>
+
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						海荣，我们已经有认识
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						希望你永远开心快乐<br/>
+						<div class="signature">——杨景坡</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="copyright">
+			Copyright © 2018 <span>yangjingpo</span>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2018, 8, 12);
+		together.setHours(21);
+		together.setMinutes(15);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
